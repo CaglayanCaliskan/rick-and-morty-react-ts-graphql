@@ -1,0 +1,7 @@
+.onhover {
+  cursor: pointer;
+  color: #fff;
+}
+.onhover:hover {
+  color: orange;
+}

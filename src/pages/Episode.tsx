@@ -13,8 +13,12 @@ const Episode = () => {
   return (
     <div className='text-light'>
       <h1>{season}</h1>
-      {filteredEpisodes?.map((item) => {
-        return <div key={item.id}>{item.name}</div>;
+      {filteredEpisodes?.map((item, index) => {
+        return (
+          <div key={item.id}>
+            Episode {index + 1} {item.name}
+          </div>
+        );
       })}
     </div>
   );

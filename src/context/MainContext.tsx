@@ -3,12 +3,6 @@ import {IEpisode} from '../allTypes';
 import CharacterModal from '../components/modals/CharacterModal';
 import FilterModal from '../components/modals/FilterModal';
 
-type ICard = {
-  id: number | null;
-  name: string | null;
-  foto: string;
-};
-
 type CardProviderProps = {
   children: ReactNode;
 };

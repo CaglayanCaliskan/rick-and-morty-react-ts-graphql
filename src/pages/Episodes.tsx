@@ -1,10 +1,11 @@
 import {useEffect} from 'react';
+import {Nav} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import {useMainContext} from '../context/MainContext';
 import {useGetAllEpisodesQuery} from '../data/graphQl/queries/getAllEpisodesQuery';
 
 const Episodes = () => {
-  const {count, currentPage, episodes, getEpisodes, getMoreEpisodes, nextPage} =
+  const {currentPage, episodes, getEpisodes, getMoreEpisodes, nextPage} =
     useGetAllEpisodesQuery();
   const {setEpisode} = useMainContext();
 
@@ -33,14 +34,25 @@ const Episodes = () => {
       <div className='d-flex flex-wrap justify-content-center '>
         {episodesArr?.map((episode, index) => {
           return (
-            <NavLink
+            <Nav.Link
+              className='d-flex justify-content-center align-items-top m-2 hover fs-1 text-light'
+              style={{
+                width: '360px',
+                height: '260px',
+                cursor: 'pointer',
+                backgroundImage: `url(./src/assets/episodes/${episode}.gif)`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+              as={NavLink}
               to={`./${episode.toLowerCase()}`}
-              className='bg-info d-flex justify-content-center align-items-center m-2 hover fs-1 text-light'
-              style={{width: '360px', height: '360px', cursor: 'pointer'}}
               key={index}
             >
-              {episode}
-            </NavLink>
+              <div className='fs-1 text-primary '>
+                <span>{episode}</span>
+              </div>
+            </Nav.Link>
           );
         })}
       </div>

@@ -3,7 +3,6 @@ import {FetchEpisodesQueryResponse, IEpisode} from '../../../allTypes';
 
 interface IQuery {
   episodes: IEpisode[] | undefined;
-  count: number;
   currentPage: number;
   nextPage: number | null;
   getEpisodes: (payload: {variables: {mypage: number}}) => any;
@@ -41,7 +40,6 @@ export function useGetAllEpisodesQuery(): IQuery {
 
   return {
     episodes: data?.episodes?.results,
-    count: data?.episodes.results?.length || 0,
     currentPage,
     nextPage,
     getEpisodes,

@@ -1,19 +1,13 @@
 import {createContext, ReactNode, useContext, useState} from 'react';
+import {IEpisode} from '../allTypes';
 import CharacterModal from '../components/modals/CharacterModal';
 import FilterModal from '../components/modals/FilterModal';
 
 type ICard = {
-  id: number;
-  name: string;
+  id: number | null;
+  name: string | null;
   foto: string;
 };
-const arr2: ICard[] = [
-  {id: 0, name: 'caglayan', foto: 'image'},
-  {id: 1, name: 'büsra  ', foto: 'image'},
-  {id: 2, name: 'yogi', foto: 'image'},
-  {id: 3, name: 'maho', foto: 'image'},
-  {id: 4, name: 'bilo', foto: 'image'},
-];
 
 type CardProviderProps = {
   children: ReactNode;
@@ -30,7 +24,6 @@ type setCharacterType = React.Dispatch<
 //Main Context TYPES
 
 type MainCartContextTypes = {
-  arr2: ICard[];
   showFilterModal: boolean;
   setShowFilterModal: setModalType;
   showCharacterModal: {
@@ -40,6 +33,8 @@ type MainCartContextTypes = {
   };
   setShowCharacterModal: setCharacterType;
   handleCharacterModal: (id: string | null, name: string | null) => void;
+  episode: IEpisode[] | undefined;
+  setEpisode: React.Dispatch<React.SetStateAction<IEpisode[]>>;
 };
 
 const MainContext = createContext({} as MainCartContextTypes);
@@ -59,6 +54,7 @@ export function CartProvider({children}: CardProviderProps) {
     name: null,
     show: false,
   });
+  const [episode, setEpisode] = useState<IEpisode[]>([]);
 
   function handleCharacterModal(id: string | null, name: string | null) {
     setShowCharacterModal({id, name, show: true});
@@ -72,7 +68,8 @@ export function CartProvider({children}: CardProviderProps) {
         showCharacterModal,
         setShowCharacterModal,
         handleCharacterModal,
-        arr2,
+        episode,
+        setEpisode,
       }}
     >
       {children}

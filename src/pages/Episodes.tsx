@@ -1,10 +1,12 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
+import {useMainContext} from '../context/MainContext';
 import {useGetAllEpisodesQuery} from '../data/graphQl/queries/getAllEpisodesQuery';
 
 const Episodes = () => {
   const {count, currentPage, episodes, getEpisodes, getMoreEpisodes, nextPage} =
     useGetAllEpisodesQuery();
+  const {setEpisode} = useMainContext();
 
   useEffect(() => {
     getEpisodes({
@@ -13,31 +15,35 @@ const Episodes = () => {
       },
     });
     nextPage && getMoreEpisodes(currentPage + 1);
+    //will refactor
+    episodes && setEpisode(episodes);
   }, [getEpisodes, nextPage]);
-  let filterArr: string[] = [];
 
+  //first 3 words for episodesArr
+  let episodesArr: string[] = [];
+  let arr = [];
   episodes?.map((item) => {
-    filterArr.includes(item.episode.slice(0, 3))
-      ? filterArr
-      : filterArr.push(item.episode.slice(0, 3));
+    episodesArr.includes(item.episode.slice(0, 3))
+      ? episodesArr
+      : episodesArr.push(item.episode.slice(0, 3));
   });
 
   return (
     <div className='text-light'>
       <div className='d-flex flex-wrap justify-content-center '>
-        {filterArr?.map((episode, index) => {
+        {episodesArr?.map((episode, index) => {
           return (
-            <div
-              className='bg-success m-2 text-center hover'
-              style={{width: '360px', height: '360px'}}
+            <NavLink
+              to={`./${episode.toLowerCase()}`}
+              className='bg-info d-flex justify-content-center align-items-center m-2 hover fs-1 text-light'
+              style={{width: '360px', height: '360px', cursor: 'pointer'}}
               key={index}
             >
               {episode}
-            </div>
+            </NavLink>
           );
         })}
       </div>
-      <NavLink to='./test'>goo</NavLink>
     </div>
   );
 };

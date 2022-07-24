@@ -35,23 +35,25 @@ const Episodes = () => {
         {episodesArr?.map((episode, index) => {
           return (
             <Nav.Link
-              className='d-flex justify-content-center align-items-top m-2 hover fs-1 text-light'
-              style={{
-                width: '360px',
-                height: '260px',
-                cursor: 'pointer',
-                backgroundImage: `url(./src/assets/episodes/${episode}.gif)`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+              className='d-flex flex-column justify-content-center align-items-center m-2 hover fs-1 text-light'
               as={NavLink}
               to={`./${episode.toLowerCase()}`}
               key={index}
             >
-              <div className='fs-1 text-primary '>
+              <div className='fs-3 text-light '>
                 <span>{episode}</span>
               </div>
+              <div
+                style={{
+                  width: '360px',
+                  height: '260px',
+                  cursor: 'pointer',
+                  backgroundImage: `url(./src/assets/episodes/${episode}.gif)`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              ></div>
             </Nav.Link>
           );
         })}

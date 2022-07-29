@@ -1,5 +1,6 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {Button, Container, Nav} from 'react-bootstrap';
+import {NavLink, useParams} from 'react-router-dom';
 import {useMainContext} from '../context/MainContext';
 
 const Episode = () => {
@@ -11,8 +12,15 @@ const Episode = () => {
   );
 
   return (
-    <div className='text-light'>
-      <h1>{season}</h1>
+    <Container className='text-light'>
+      <header className='d-flex justify-content-between'>
+        <h1>{season?.replace('s0', 'Season ')}</h1>
+        <Button className='p-0 m-0 btn-secondary'>
+          <Nav.Link as={NavLink} to='/episodes' className='text-light h-full'>
+            back
+          </Nav.Link>
+        </Button>
+      </header>
       {filteredEpisodes?.map((item, index) => {
         return (
           <div key={item.id}>
@@ -20,7 +28,7 @@ const Episode = () => {
           </div>
         );
       })}
-    </div>
+    </Container>
   );
 };
 

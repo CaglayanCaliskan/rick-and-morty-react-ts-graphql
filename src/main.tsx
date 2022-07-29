@@ -8,10 +8,8 @@ import {apolloClient} from './data/graphQl/lib/apolloClient';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Router>
-    <React.StrictMode>
-      <ApolloProvider client={apolloClient}>
-        <App />
-      </ApolloProvider>
-    </React.StrictMode>
+    <ApolloProvider client={apolloClient}>
+      <App />
+    </ApolloProvider>
   </Router>
 );

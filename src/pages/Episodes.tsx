@@ -30,18 +30,18 @@ const Episodes = () => {
   });
 
   return (
-    <div className='text-light'>
+    <main className='text-light'>
       <div className='d-flex flex-wrap justify-content-center '>
         {episodesArr?.map((episode, index) => {
           return (
             <Nav.Link
-              className='d-flex flex-column justify-content-center align-items-center m-2 hover fs-1 text-light'
+              className='d-flex flex-column justify-content-center align-items-center m-3 hover text-light '
               as={NavLink}
               to={`./${episode.toLowerCase()}`}
               key={index}
             >
-              <div className='fs-3 text-light '>
-                <span>{episode}</span>
+              <div className='fs-3 text-light ho text-uppercase fw-bold onhover'>
+                <span>{episode.replace('S0', 'Season ')}</span>
               </div>
               <div
                 style={{
@@ -53,12 +53,13 @@ const Episodes = () => {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
+                className='rounded'
               ></div>
             </Nav.Link>
           );
         })}
       </div>
-    </div>
+    </main>
   );
 };
 

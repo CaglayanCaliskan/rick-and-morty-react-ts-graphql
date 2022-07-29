@@ -33,3 +33,9 @@ export interface FetchEpisodesQueryResponse {
     info: Info;
   };
 }
+//Game
+export interface ICard {
+  url: string;
+  id: number;
+  matched: boolean;
+}

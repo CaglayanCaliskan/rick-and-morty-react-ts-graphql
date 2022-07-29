@@ -5,3 +5,42 @@
 .onhover:hover {
   color: orange;
 }
+/* Game */
+
+.card-grid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+.game-card {
+  position: relative;
+
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.game-card img {
+  width: 100%;
+  height: 100px;
+  display: block;
+}
+.game-card .front {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.game-card .back {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}

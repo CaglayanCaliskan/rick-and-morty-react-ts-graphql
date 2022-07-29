@@ -57,7 +57,7 @@ const Characters = () => {
         }
         className='p-3'
       >
-        <Row className='mt-4' xs={1} md={2} lg={3}>
+        <Row className='mt-4' xs={1} md={2} lg={2} xl={3}>
           {characters?.map((character: ICharacter) => {
             return (
               <Col key={character.id}>

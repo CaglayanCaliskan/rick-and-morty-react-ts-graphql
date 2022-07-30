@@ -3,6 +3,11 @@ import {Nav} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import {useMainContext} from '../context/MainContext';
 import {useGetAllEpisodesQuery} from '../data/graphQl/queries/getAllEpisodesQuery';
+import s01 from '../assets/episodes/s01.gif';
+import s02 from '../assets/episodes/s02.gif';
+import s03 from '../assets/episodes/s03.gif';
+import s04 from '../assets/episodes/s04.gif';
+import s05 from '../assets/episodes/s05.gif';
 
 const Episodes = () => {
   const {currentPage, episodes, getEpisodes, getMoreEpisodes, nextPage} =
@@ -22,17 +27,19 @@ const Episodes = () => {
 
   //first 3 words for episodesArr
   let episodesArr: string[] = [];
-  let arr = [];
   episodes?.map((item) => {
     episodesArr.includes(item.episode.slice(0, 3))
       ? episodesArr
       : episodesArr.push(item.episode.slice(0, 3));
   });
 
+  const imgs = [s01, s02, s03, s04, s05];
+
   return (
     <main className='text-light'>
       <div className='d-flex flex-wrap justify-content-center '>
         {episodesArr?.map((episode, index) => {
+          const es = episode.toLowerCase();
           return (
             <Nav.Link
               className='d-flex flex-column justify-content-center align-items-center m-3 hover text-light '
@@ -48,7 +55,7 @@ const Episodes = () => {
                   width: '360px',
                   height: '260px',
                   cursor: 'pointer',
-                  backgroundImage: `url(./src/assets/episodes/${episode}.gif)`,
+                  backgroundImage: `url(${imgs[index]})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',

@@ -10,26 +10,22 @@ const Home = () => {
     >
       <div className='my-1'>
         <h3>Wellcome to Rick & Morty World</h3>
-        <Carousel fade className='mt-5'>
+        <Carousel fade className='mt-5 '>
           <Carousel.Item>
-            <img
-              className='d-block w-100 rounded'
-              src={bg4}
-              alt='First slide'
-            />
+            <img className='d-block w-100 rounded' src={bg} alt='First slide' />
             <Carousel.Caption>
-              <p>Find Your Favorite Characters</p>
+              <p className='text-dark'>Find Your Favorite Characters</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className='d-block w-100 rounded'
-              src={bg}
+              src={bg4}
               alt='Second slide'
             />
 
             <Carousel.Caption>
-              <p>Find Your Favorite Episodes</p>
+              <p className='text-dark'>Find Your Favorite Episodes</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -40,13 +36,19 @@ const Home = () => {
             />
 
             <Carousel.Caption>
-              <p>Play Puzzle Game</p>
+              <p className='text-dark'>Play Puzzle Game</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
       <p>
-        for more info: <a href=''>Github</a>
+        for more info:{' '}
+        <a
+          href='https://github.com/CaglayanCaliskan/rick-and-morty-react-ts-graphql'
+          target='blank'
+        >
+          Github
+        </a>
       </p>
     </div>
   );

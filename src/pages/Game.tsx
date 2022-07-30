@@ -69,7 +69,7 @@ const Game = () => {
 
   return (
     <>
-      <div className='card-grid mt-5'>
+      <div className='card-grid mt-3'>
         {cards.map((card, index) => {
           return (
             <SingleCard
@@ -86,7 +86,7 @@ const Game = () => {
         <Button className='w-50' onClick={suffleCards}>
           New Game
         </Button>
-        <p className='text-light'>Turn: {turns}</p>
+        <p className='text-light mt-1'>Turn: {turns}</p>
       </div>
     </>
   );

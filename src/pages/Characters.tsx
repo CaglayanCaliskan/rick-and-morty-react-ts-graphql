@@ -50,17 +50,16 @@ const Characters = () => {
 
   return (
     <Container>
-      <Nav className='align-items-center text-light'>
+      <Nav className='d-flex align-items-center text-light'>
         <span className='me-2'>Filter</span>
         <Button onClick={handleOpen} variant='outline-light'>
           <BiFilterAlt />
         </Button>
-
         <label className='ms-2' htmlFor='searchBar'>
           Search
         </label>
         <input
-          className='ms-2 rounded'
+          className='ms-2 w-50 rounded'
           id='searchBar'
           value={searchBar}
           type='text'
@@ -71,7 +70,7 @@ const Characters = () => {
 
         {showFilterModal.filter && (
           <Button
-            className='btn-danger mt-1'
+            className='btn-danger mt-3'
             onClick={() => {
               setShowFilterModal((prev) => ({...prev, filter: ''}));
               refetch({myfilter: ''});
@@ -91,7 +90,7 @@ const Characters = () => {
             <span className='visually-hidden'>Loading...</span>
           </Spinner>
         }
-        className='p-3'
+        className='p-1'
       >
         <Row className='mt-4' xs={1} md={2} lg={2} xl={3}>
           {filteredCharacters?.map((character: ICharacter) => {

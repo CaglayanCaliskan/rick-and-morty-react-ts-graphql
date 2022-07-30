@@ -6,10 +6,10 @@ const Home = () => {
   return (
     <div
       className='text-light text-center d-flex flex-column justify-content-between '
-      style={{height: '80vh'}}
+      style={{height: '70vh'}}
     >
-      <div className='my-1'>
-        <h3>Wellcome to Rick & Morty World</h3>
+      <div className='my-1 '>
+        <h3 className='fs-5'>Wellcome to Rick & Morty World</h3>
         <Carousel fade className='mt-5 '>
           <Carousel.Item>
             <img className='d-block w-100 rounded' src={bg} alt='First slide' />

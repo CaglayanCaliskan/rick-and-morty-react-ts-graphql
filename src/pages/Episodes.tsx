@@ -42,7 +42,7 @@ const Episodes = () => {
           const es = episode.toLowerCase();
           return (
             <Nav.Link
-              className='d-flex flex-column justify-content-center align-items-center m-3 hover text-light '
+              className='d-flex border border-warning rounded flex-column justify-content-center align-items-center m-3 hover text-light '
               as={NavLink}
               to={`./${episode.toLowerCase()}`}
               key={index}
@@ -52,7 +52,7 @@ const Episodes = () => {
               </div>
               <div
                 style={{
-                  width: '360px',
+                  width: '300px',
                   height: '260px',
                   cursor: 'pointer',
                   backgroundImage: `url(${imgs[index]})`,

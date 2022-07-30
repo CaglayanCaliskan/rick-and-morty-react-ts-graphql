@@ -4,10 +4,7 @@ import homeicon from '../assets/homeicon.svg';
 
 const Navbar = () => {
   return (
-    <NavbarBs
-      className='mb-4 sticky-top  bg-dark'
-      style={{gap: '.7em', fontSize: '1.5em'}}
-    >
+    <NavbarBs className='mb-4 sticky-top  bg-dark' style={{gap: '.7em'}}>
       <Nav className='me-auto'>
         <Nav.Link className='text-light ' to='/' as={NavLink}>
           <img src={homeicon} width='40px' alt='homei' />

@@ -1,5 +1,4 @@
-import React from 'react';
-import {Button, Container, Nav} from 'react-bootstrap';
+import {Button, Container, ListGroup, Nav} from 'react-bootstrap';
 import {NavLink, useParams} from 'react-router-dom';
 import {useMainContext} from '../context/MainContext';
 
@@ -23,9 +22,11 @@ const Episode = () => {
       </header>
       {filteredEpisodes?.map((item, index) => {
         return (
-          <div key={item.id}>
-            Episode {index + 1} {item.name}
-          </div>
+          <ListGroup key={item.id}>
+            <ListGroup.Item className='bg-dark text-light'>
+              Episode {index + 1} {item.name}
+            </ListGroup.Item>
+          </ListGroup>
         );
       })}
     </Container>

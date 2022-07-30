@@ -31,7 +31,7 @@ const CharacterCard = ({
         <Col>
           <div>
             <h5
-              onClick={() => handleCharacterModal(id, name)}
+              onClick={() => handleCharacterModal(id, name, image)}
               className='ho text-uppercase fw-bold onhover'
               style={{cursor: 'pointer'}}
             >

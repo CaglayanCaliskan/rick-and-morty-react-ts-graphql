@@ -18,7 +18,7 @@ type Info = {
   count: number;
   pages: number;
   prev: number | null;
-  next: number | null;
+  next: number;
 };
 
 export interface FetchCharactersQueryResponse {

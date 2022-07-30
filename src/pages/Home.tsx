@@ -1,12 +1,50 @@
+import {Carousel} from 'react-bootstrap';
 import bg from '../assets/photos/thumb-1920-1099810.jpg';
+import bg1 from '../assets/photos/bg1.gif';
+import bg4 from '../assets/photos/bg4.webp';
 const Home = () => {
   return (
-    <div className='container text-light text-center d-flex flex-column '>
-      <h1>Wellcome to Rick & Morty </h1>
+    <div
+      className='text-light text-center d-flex flex-column justify-content-between '
+      style={{height: '80vh'}}
+    >
       <div className='my-1'>
-        <img src={bg} alt={bg} style={{width: '100%'}} />
+        <h3>Wellcome to Rick & Morty World</h3>
+        <Carousel fade className='mt-5'>
+          <Carousel.Item>
+            <img
+              className='d-block w-100 rounded'
+              src={bg4}
+              alt='First slide'
+            />
+            <Carousel.Caption>
+              <p>Find Your Favorite Characters</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className='d-block w-100 rounded'
+              src={bg}
+              alt='Second slide'
+            />
+
+            <Carousel.Caption>
+              <p>Find Your Favorite Episodes</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className='d-block w-100 rounded'
+              src={bg1}
+              alt='Third slide'
+            />
+
+            <Carousel.Caption>
+              <p>Play Puzzle Game</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
       </div>
-      <h2 className=''>You can find your favorite character and episodes </h2>
       <p>
         for more info: <a href=''>Github</a>
       </p>

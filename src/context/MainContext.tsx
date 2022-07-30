@@ -6,11 +6,17 @@ import FilterModal from '../components/modals/FilterModal';
 type CardProviderProps = {
   children: ReactNode;
 };
-type setModalType = React.Dispatch<React.SetStateAction<boolean>>;
+type setModalType = React.Dispatch<
+  React.SetStateAction<{
+    filter: string;
+    show: boolean;
+  }>
+>;
 type setCharacterType = React.Dispatch<
   React.SetStateAction<{
     id: string | null;
     name: string | null;
+    image: string | null;
     show: boolean;
   }>
 >;
@@ -18,15 +24,23 @@ type setCharacterType = React.Dispatch<
 //Main Context TYPES
 
 type MainCartContextTypes = {
-  showFilterModal: boolean;
+  showFilterModal: {
+    filter: string;
+    show: boolean;
+  };
   setShowFilterModal: setModalType;
   showCharacterModal: {
     id: string | null;
     name: string | null;
+    image: string | null;
     show: boolean;
   };
   setShowCharacterModal: setCharacterType;
-  handleCharacterModal: (id: string | null, name: string | null) => void;
+  handleCharacterModal: (
+    id: string | null,
+    name: string | null,
+    image: string | null
+  ) => void;
   episode: IEpisode[] | undefined;
   setEpisode: React.Dispatch<React.SetStateAction<IEpisode[]>>;
 };
@@ -38,20 +52,32 @@ export function useMainContext() {
 }
 
 export function CartProvider({children}: CardProviderProps) {
-  const [showFilterModal, setShowFilterModal] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState<{
+    filter: string;
+    show: boolean;
+  }>({
+    filter: '',
+    show: false,
+  });
   const [showCharacterModal, setShowCharacterModal] = useState<{
     id: string | null;
     name: string | null;
+    image: string | null;
     show: boolean;
   }>({
     id: null,
     name: null,
+    image: null,
     show: false,
   });
   const [episode, setEpisode] = useState<IEpisode[]>([]);
 
-  function handleCharacterModal(id: string | null, name: string | null) {
-    setShowCharacterModal({id, name, show: true});
+  function handleCharacterModal(
+    id: string | null,
+    name: string | null,
+    image: string | null
+  ) {
+    setShowCharacterModal({id, name, image, show: true});
   }
 
   return (
